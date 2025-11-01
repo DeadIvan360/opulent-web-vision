@@ -164,3 +164,17 @@ All colors MUST be HSL.
   animation: float 6s ease-in-out infinite;
   animation-play-state: paused;
 }
+
+@keyframes video-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.video-background {
+  animation: video-fade-in 1.5s ease-out 1s forwards;
+  opacity: 0;
+}

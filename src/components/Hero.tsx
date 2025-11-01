@@ -92,7 +92,7 @@ const Hero = () => {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover video-background"
       >
         <source src={videoFondo} type="video/mp4" />
       </video>
