@@ -97,3 +97,70 @@ All colors MUST be HSL.
     transition: var(--transition-smooth);
   }
 }
+
+/* Hero Interactive Effects */
+@keyframes word-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(30);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.word {
+  display: inline-block;
+  margin: 0 0.15em;
+  opacity: 0;
+}
+
+.grid-line {
+  stroke: rgba(203, 161, 53, 0.08);
+  stroke-width: 0.5;
+  fill: none;
+  animation: word-appear 1s ease-out forwards;
+}
+
+.detail-dot {
+  fill: rgba(203, 161, 53, 0.3);
+  opacity: 0;
+  animation: word-appear 1s ease-out forwards;
+}
+
+.corner-element {
+  position: absolute;
+  opacity: 0;
+  animation: word-appear 1s ease-out forwards;
+}
+
+.floating-element {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(203, 161, 53, 0.15);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  animation-play-state: paused;
+}
