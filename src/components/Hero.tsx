@@ -87,29 +87,18 @@ const Hero = () => {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover video-background"
-      >
+      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover video-background">
         <source src={videoFondo} type="video/mp4" />
       </video>
-      
+
       {/* Dark overlay for text legibility */}
       <div className="absolute inset-0 bg-pure-black/60" />
-      
+
       {/* SVG Grid Overlay */}
       <svg className="absolute inset-0 w-full h-full z-[1]" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path
-              d="M 60 0 L 0 0 0 60"
-              fill="none"
-              stroke="rgba(203,161,53,0.08)"
-              strokeWidth="0.5"
-            />
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(203,161,53,0.08)" strokeWidth="0.5" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#grid)" />
@@ -151,28 +140,59 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-light tracking-tight mb-6 leading-tight"
           >
-            <span className="word" data-delay="400">Creamos</span>{" "}
-            <span className="word" data-delay="550">sitios</span>{" "}
-            <span className="word" data-delay="700">web</span>{" "}
-            <span className="word" data-delay="850">que</span>{" "}
-            <span className="text-luxury-gold font-normal word" data-delay="1000">definen</span>{" "}
-            <span className="text-luxury-gold font-normal word" data-delay="1150">grandeza</span>
+            <span className="word" data-delay="400">
+              Creamos
+            </span>{" "}
+            <span className="word" data-delay="550">
+              sitios
+            </span>{" "}
+            <span className="word" data-delay="700">
+              web
+            </span>{" "}
+            <span className="word" data-delay="850">
+              que
+            </span>{" "}
+            <span className="text-luxury-gold font-normal word" data-delay="1000">
+              definen
+            </span>{" "}
+            <span className="text-luxury-gold font-normal word" data-delay="1150">
+              grandeza
+            </span>
           </motion.h1>
 
+          {/* --- CÓDIGO MODIFICADO --- */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-muted-foreground mb-12 font-light"
           >
-            <span className="word" data-delay="1300">Diseño</span>{" "}
-            <span className="word" data-delay="1450">digital</span>{" "}
-            <span className="word" data-delay="1600">de</span>{" "}
-            <span className="word" data-delay="1750">élite</span>{" "}
-            <span className="word" data-delay="1900">para</span>{" "}
-            <span className="word" data-delay="2050">emprendedores</span>{" "}
-            <span className="word" data-delay="2200">visionarios</span>
+            <span className="word" data-delay="1300">
+              Integramos
+            </span>{" "}
+            <span className="word" data-delay="1450">
+              marketing,
+            </span>{" "}
+            <span className="word" data-delay="1600">
+              automatización
+            </span>{" "}
+            <span className="word" data-delay="1750">
+              y
+            </span>{" "}
+            <span className="word" data-delay="1900">
+              tecnología
+            </span>{" "}
+            <span className="word" data-delay="2050">
+              con
+            </span>{" "}
+            <span className="word" data-delay="2200">
+              resultados
+            </span>{" "}
+            <span className="word" data-delay="2350">
+              visibles
+            </span>
           </motion.p>
+          {/* --- FIN CÓDIGO MODIFICADO --- */}
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
