@@ -1,89 +1,14 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import React, { useRef, useEffect, forwardRef } from "react";
-import { Quote } from "lucide-react";
+import React, { useRef } from "react";
+// Se eliminaron las importaciones que solo usaba el banner de texto (como useScroll, useSpring, etc.)
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-// --- INICIO: IMPORTACIONES Y DEFINICIÓN DEL BANNER DE TEXTO ---
-import {
-  useScroll,
-  useSpring,
-  useTransform,
-  useVelocity,
-  useAnimationFrame,
-  useMotionValue,
-  wrap,
-} from "framer-motion";
-
-interface ScrollingTextBannerProps {
-  children: string;
-  baseVelocity: number;
-  clasname?: string;
-  scrollDependent?: boolean;
-  delay?: number;
-}
-
-const ScrollingTextBanner = forwardRef<HTMLDivElement, ScrollingTextBannerProps>(
-  ({ children, baseVelocity = -5, clasname, scrollDependent = false, delay = 0 }, ref) => {
-    const baseX = useMotionValue(0);
-    const { scrollY } = useScroll();
-    const scrollVelocity = useVelocity(scrollY);
-    const smoothVelocity = useSpring(scrollVelocity, {
-      damping: 50,
-      stiffness: 400,
-    });
-    const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 2], {
-      clamp: false,
-    });
-
-    const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
-
-    const directionFactor = useRef<number>(1);
-    const hasStarted = useRef(false);
-
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        hasStarted.current = true;
-      }, delay);
-
-      return () => clearTimeout(timer);
-    }, [delay]);
-
-    useAnimationFrame((t, delta) => {
-      if (!hasStarted.current) return;
-
-      let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
-
-      if (scrollDependent) {
-        if (velocityFactor.get() < 0) {
-          directionFactor.current = -1;
-        } else if (velocityFactor.get() > 0) {
-          directionFactor.current = 1;
-        }
-      }
-
-      moveBy += directionFactor.current * moveBy * velocityFactor.get();
-
-      baseX.set(baseX.get() + moveBy);
-    });
-
-    return (
-      <div ref={ref} className="overflow-hidden whitespace-nowrap flex flex-nowrap">
-        <motion.div className="flex whitespace-nowrap gap-10 flex-nowrap" style={{ x }}>
-          <span className={cn(`block text-[8vw]`, clasname)}>{children}</span>
-          <span className={cn(`block text-[8vw]`, clasname)}>{children}</span>
-          <span className={cn(`block text-[8vw]`, clasname)}>{children}</span>
-          <span className={cn(`block text-[8vw]`, clasname)}>{children}</span>
-        </motion.div>
-      </div>
-    );
-  },
-);
-
-ScrollingTextBanner.displayName = "ScrollingTextBanner";
-// --- FIN: DEFINICIÓN DEL BANNER DE TEXTO ---
+// --- INICIO: BANNER DE TEXTO ELIMINADO ---
+// Se eliminó toda la definición del componente 'ScrollingTextBanner' de aquí.
+// --- FIN: BANNER DE TEXTO ELIMINADO ---
 
 // --- (Definiciones de TestimonialCard y TestimonialAuthor) ---
 export interface TestimonialAuthor {
@@ -186,13 +111,9 @@ const Clients = () => {
           <p className="text-xl text-muted-foreground font-light">Marcas que eligieron WebTomic</p>
         </motion.div>
 
-        {/* --- INICIO: BANNER DE TEXTO REEMPLAZANDO LOS LOGOS --- */}
-        <div className="mb-24">
-          <ScrollingTextBanner baseVelocity={-1} clasname="font-light tracking-tight text-luxury-gold">
-            Doble visibilidad. Doble de clientes. Doble de ingresos. Y el doble de tranquilidad •
-          </ScrollingTextBanner>
-        </div>
-        {/* --- FIN: BANNER DE TEXTO --- */}
+        {/* --- INICIO: BANNER DE TEXTO ELIMINADO --- */}
+        {/* Se eliminó el 'div' que contenía el 'ScrollingTextBanner' de aquí. */}
+        {/* --- FIN: BANNER DE TEXTO ELIMINADO --- */}
 
         {/* Carrusel Sticky de Imágenes */}
         <div className="relative mb-32">
