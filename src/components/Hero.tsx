@@ -167,7 +167,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-3xl text-muted-foreground mb-12 font-light"
+            className="text-xl md:text-3xl text-foreground/80 mb-12 font-light"
           >
             <span className="word" data-delay="1500">
               Tu
