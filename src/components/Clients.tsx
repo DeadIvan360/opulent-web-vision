@@ -23,13 +23,13 @@ export const TestimonialCard = React.forwardRef<HTMLDivElement, TestimonialCardP
         ref={ref}
         className={cn(
           "w-80 shrink-0 rounded-lg",
-          "bg-secondary border border-luxury-gold/20 hover:border-luxury-gold/50 transition-luxury group",
+          "bg-white shadow-md border border-luxury-gold/20 hover:border-luxury-gold/50 transition-luxury group",
           className,
         )}
       >
         <CardContent className="p-8">
-          <p className="mb-6 font-light leading-relaxed text-foreground/90">"{text}"</p>
-          <div className="flex items-center gap-3 border-t border-border pt-4">
+          <p className="mb-6 font-light leading-relaxed text-gray-800">"{text}"</p>
+          <div className="flex items-center gap-3 border-t border-gray-200 pt-4">
             <Avatar>
               <AvatarImage src={author.imageSrc} alt={author.name} />
               <AvatarFallback>
@@ -40,8 +40,8 @@ export const TestimonialCard = React.forwardRef<HTMLDivElement, TestimonialCardP
               </AvatarFallback>
             </Avatar>
             <div>
-              <p className="font-normal text-foreground">{author.name}</p>
-              <p className="text-sm text-muted-foreground">{author.handle}</p>
+              <p className="font-normal text-black">{author.name}</p>
+              <p className="text-sm text-gray-600">{author.handle}</p>
             </div>
           </div>
         </CardContent>
@@ -88,7 +88,7 @@ const Clients = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="clientes" ref={ref} className="py-32 bg-card">
+    <section id="clientes" ref={ref} className="py-32 bg-white">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -96,10 +96,10 @@ const Clients = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-tight text-neutral-900">
             Clientes que confían en la <span className="text-luxury-gold">excelencia</span>
           </h2>
-          <p className="text-xl text-muted-foreground font-light">Marcas que eligieron WebTomic</p>
+          <p className="text-xl text-neutral-700 font-light">Marcas que eligieron WebTomic</p>
         </motion.div>
 
         <div className="relative mb-32">
@@ -190,8 +190,8 @@ const Clients = () => {
               </div>
             </div>
 
-            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/3 bg-gradient-to-r from-card sm:block" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/im/3 bg-gradient-to-l from-card sm:block" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/3 bg-gradient-to-r from-white sm:block" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/3 bg-gradient-to-l from-white sm:block" />
           </motion.div>
         </div>
       </div>
