@@ -96,10 +96,10 @@ const Clients = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-tight text-neutral-900">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight text-neutral-900">
             Clientes que confían en la <span className="text-luxury-gold">excelencia</span>
           </h2>
-          <p className="text-xl text-neutral-700 font-light">Marcas que eligieron WebTomic</p>
+          <p className="text-2xl text-neutral-700 font-bold">Marcas que eligieron WebTomic</p>
         </motion.div>
 
         <div className="relative mb-32">
