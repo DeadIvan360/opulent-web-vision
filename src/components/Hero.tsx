@@ -133,12 +133,12 @@ const Hero = () => {
       <div className="floating-element z-[2]" style={{ top: "75%", left: "90%", animationDelay: "6.5s" }}></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-light tracking-tight mb-6 leading-tight"
+            className="text-6xl md:text-8xl font-normal tracking-tight mb-6 leading-tight"
           >
             <span className="word" data-delay="400">
               Creamos
@@ -152,47 +152,57 @@ const Hero = () => {
             <span className="word" data-delay="850">
               que
             </span>{" "}
-            <span className="text-luxury-gold font-normal word" data-delay="1000">
+            <span className="text-luxury-gold word" data-delay="1000">
               llenan
             </span>{" "}
-            <span className="text-luxury-gold font-normal word" data-delay="1150">
-              tu mesa
+            <span className="text-luxury-gold word" data-delay="1150">
+              tu
+            </span>{" "}
+            <span className="text-luxury-gold word" data-delay="1300">
+              mesa
             </span>
           </motion.h1>
 
-          {/* --- CÓDIGO MODIFICADO --- */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-12 font-light"
+            className="text-xl md:text-3xl text-muted-foreground mb-12 font-light"
           >
-            <span className="word" data-delay="1300">
-              Tu presencia
-            </span>{" "}
-            <span className="word" data-delay="1450">
-              digital rentable:
+            <span className="word" data-delay="1500">
+              Tu
             </span>{" "}
             <span className="word" data-delay="1600">
-              optimizada
+              presencia
             </span>{" "}
-            <span className="word" data-delay="1750">
+            <span className="word" data-delay="1700">
+              digital
+            </span>{" "}
+            <span className="word" data-delay="1800">
+              rentable:
+            </span>{" "}
+            <span className="word" data-delay="1950">
+              optimizada,
+            </span>{" "}
+            <span className="word" data-delay="2100">
               rápida
             </span>{" "}
-            <span className="word" data-delay="1900">
-              y lista para
+            <span className="word" data-delay="2200">
+              y
             </span>{" "}
-            <span className="word" data-delay="2050">
+            <span className="word" data-delay="2300">
+              lista
+            </span>{" "}
+            <span className="word" data-delay="2400">
+              para
+            </span>{" "}
+            <span className="word" data-delay="2500">
               recibir
             </span>{" "}
-            <span className="word" data-delay="2200">
+            <span className="word" data-delay="2600">
               clientes
-            </span>{" "}
-            <span className="word" data-delay="2350">
-              .
             </span>
           </motion.p>
-          {/* --- FIN CÓDIGO MODIFICADO --- */}
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
