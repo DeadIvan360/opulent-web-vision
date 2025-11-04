@@ -31,9 +31,12 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   return (
     <div className="w-full bg-background font-sans md:px-10" ref={containerRef}>
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-3xl md:text-5xl mb-4 text-foreground font-semibold max-w-4xl">Nuestro Proceso de Éxito</h2>
+        <h2 className="text-3xl md:text-5xl mb-4 text-foreground font-semibold max-w-4xl">
+          Descubre como impulsar tu negocio en 4 sencillos pasos"
+        </h2>
         <p className="text-muted-foreground text-lg md:text-xl max-w-sm">
-          Cada proyecto prémium sigue un camino meticulosamente planificado, desde la visión hasta la realidad.
+          Creemos en la simplicidad y los resultados. Descubre el método que transforma tu visión en una presencia
+          digital rentable.
         </p>
       </div>
 
