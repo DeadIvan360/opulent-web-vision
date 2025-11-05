@@ -201,8 +201,7 @@ const WovenLightSection = () => {
     };
   }, [textControls, buttonControls]);
 
-  const headline =
-    "¿Por qué tu web debe ser rápida? Porque cada segundo de carga te cuesta clientes. Este nivel de optimización solo se logra con código experto.";
+  const headline = "Código Real, Resultados Reales.";
 
   return (
     <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black dark:bg-white">
