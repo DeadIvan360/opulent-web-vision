@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <WarpDriveShader /> {/* <-- LÍNEA AÑADIDA (lo ponemos aquí para que sea el fondo) */}
+      <WarpDriveShader /> {/* <-- LÍNEA AÑADIDA */}
       <Header />
       <main>
         <Hero />
