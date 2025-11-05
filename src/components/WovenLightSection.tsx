@@ -236,7 +236,7 @@ const WovenLightSection = () => {
           className="mx-auto mt-6 max-w-xl text-lg text-slate-300 dark:text-slate-600"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
-          An interactive tapestry of light and motion, crafted with code and creativity.
+          Programamos a medida para que tu sitio web sea tan rápido y fluido como esta animación.
         </motion.p>
         <motion.div initial={{ opacity: 0 }} animate={buttonControls} className="mt-10">
           <button
