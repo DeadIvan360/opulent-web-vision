@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-// La línea que importaba 'logoAtom' ha sido eliminada.
+import logoAtom from "@/assets/Atom_Studios_sin_fondo_1.png";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -37,8 +37,7 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {/* La etiqueta <img> que mostraba el logo ha sido eliminada. */}
-            <span className="text-2xl font-bold text-luxury-gold">Atom Studios</span>
+            <img src={logoAtom} alt="Atom Studios" className="h-12 w-auto" />
           </motion.button>
 
           <nav className="hidden md:flex items-center gap-8">
