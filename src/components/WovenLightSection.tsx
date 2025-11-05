@@ -135,7 +135,7 @@ const WovenCanvas = () => {
 
             positions[ix] += velocity.x;
             positions[iy] += velocity.y;
-  t         positions[iz] += velocity.z;
+            positions[iz] += velocity.z;
             
             velocities[ix] = velocity.x;
             velocities[iy] = velocity.y;
@@ -144,7 +144,7 @@ const WovenCanvas = () => {
         geometry.attributes.position.needsUpdate = true;
 
         points.rotation.y = elapsedTime * 0.05;
-        renderer.render(scene, camera);
+  m     renderer.render(scene, camera);
     };
     animate();
 
@@ -188,7 +188,7 @@ const WovenLightSection = () => {
 
     textControls.start(i => ({
       opacity: 1,
-      y: 0,
+  a     y: 0,
       transition: {
         delay: i * 0.1 + 1.5,
         duration: 1.2,
@@ -230,9 +230,10 @@ const WovenLightSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={textControls}
           className="mx-auto mt-6 max-w-xl text-lg text-slate-300 dark:text-slate-600"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+t         style={{ fontFamily: "'Inter', sans-serif" }}
         >
           An interactive tapestry of light and motion, crafted with code and creativity.
+content-fetch-id: deadivan360/opulent-web-vision/opulent-web-vision-a20179f03d2a4da388e6bb56733f73d87c934aa2/src/components/WarpDriveShader.tsx
         </motion.p>
         <motion.div initial={{ opacity: 0 }} animate={buttonControls} className="mt-10">
           <button className="rounded-full border-2 border-white/20 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 dark:border-slate-800/20 dark:bg-slate-800/5 dark:text-slate-800 dark:hover:bg-slate-800/10" style={{ fontFamily: "'Inter', sans-serif" }}>
