@@ -2,55 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 4.3%;
-    --foreground: 0 0% 100%;
-
-    --card: 0 0% 6.7%;
-    --card-foreground: 0 0% 100%;
-
-    --popover: 0 0% 4.3%;
-    --popover-foreground: 0 0% 100%;
-
-    --primary: 43 74% 66%;
-    --primary-foreground: 0 0% 0%;
-
-    --secondary: 0 0% 6.7%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 61%;
-
-    --accent: 43 74% 66%;
-    --accent-foreground: 0 0% 0%;
-
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 0 0% 13%;
-    --input: 0 0% 13%;
-    --ring: 43 74% 66%;
-
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
     --radius: 0.5rem;
+  }
 
-    --luxury-gold: 43 74% 66%;
-    --luxury-gold-bright: 43 80% 74%;
-    --deep-black: 0 0% 4.3%;
-    --card-black: 0 0% 6.7%;
-    --pure-black: 0 0% 0%;
-    
-    --gradient-luxury: linear-gradient(135deg, hsl(0 0% 4.3%) 0%, hsl(0 0% 8%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(43 74% 66% / 0.1) 0%, hsl(43 74% 66% / 0) 100%);
-    
-    --shadow-luxury: 0 20px 60px -10px hsl(43 74% 66% / 0.1);
-    --shadow-gold-glow: 0 0 40px hsl(43 74% 66% / 0.3);
-    
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
   }
 }
 
@@ -58,123 +53,11 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground font-light antialiased;
+    /* La línea '@apply bg-background;' fue eliminada para hacer el fondo transparente */
+    @apply text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
-}
-
-@layer utilities {
-  .luxury-gradient {
-    background: var(--gradient-luxury);
-  }
-  
-  .gold-gradient {
-    background: var(--gradient-gold);
-  }
-  
-  .text-luxury-gold {
-    color: hsl(var(--luxury-gold));
-  }
-  
-  .bg-luxury-gold {
-    background-color: hsl(var(--luxury-gold));
-  }
-  
-  .border-luxury-gold {
-    border-color: hsl(var(--luxury-gold));
-  }
-  
-  .shadow-luxury {
-    box-shadow: var(--shadow-luxury);
-  }
-  
-  .shadow-gold-glow {
-    box-shadow: var(--shadow-gold-glow);
-  }
-  
-  .transition-luxury {
-    transition: var(--transition-smooth);
-  }
-}
-
-/* Hero Interactive Effects */
-@keyframes word-appear {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse-glow {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(30);
-    opacity: 0;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-.word {
-  display: inline-block;
-  margin: 0 0.15em;
-  opacity: 0;
-}
-
-.grid-line {
-  stroke: rgba(203, 161, 53, 0.08);
-  stroke-width: 0.5;
-  fill: none;
-  animation: word-appear 1s ease-out forwards;
-}
-
-.detail-dot {
-  fill: rgba(203, 161, 53, 0.3);
-  opacity: 0;
-  animation: word-appear 1s ease-out forwards;
-}
-
-.corner-element {
-  position: absolute;
-  opacity: 0;
-  animation: word-appear 1s ease-out forwards;
-}
-
-.floating-element {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: rgba(203, 161, 53, 0.15);
-  border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
-  animation-play-state: paused;
-}
-
-@keyframes video-fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.video-background {
-  animation: video-fade-in 1.5s ease-out 1s forwards;
-  opacity: 0;
 }
