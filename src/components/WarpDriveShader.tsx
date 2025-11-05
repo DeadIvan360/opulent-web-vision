@@ -1,30 +1,28 @@
-import React, { useEffect, useRef } from 'react';
-import * as THREE from 'three';
+import React, { useEffect, useRef } from "react";
+import * as THREE from "three";
 
 const WarpDriveShader = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return; // 1) Renderer + Scene + Camera + Clock
 
-    // 1) Renderer + Scene + Camera + Clock
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    container.appendChild(renderer.domElement);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    const clock = new THREE.Clock();
+    const scene = new THREE.Scene();
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    const clock = new THREE.Clock(); // 2) GLSL Shaders
 
-    // 2) GLSL Shaders
-    const vertexShader = `
+    const vertexShader = `
       void main() {
         gl_Position = vec4(position, 1.0);
       }
     `;
 
-    const fragmentShader = `
+    const fragmentShader = `
       precision highp float;
       uniform vec2 iResolution;
       uniform float iTime;
@@ -54,89 +52,81 @@ const WarpDriveShader = () => {
 
         gl_FragColor = vec4(finalColor, 1.0);
       }
-    `;
+    `; // 3) Uniforms + Material + Mesh
 
-    // 3) Uniforms + Material + Mesh
-    const uniforms = {
-      iTime:       { value: 0 },
-      iResolution: { value: new THREE.Vector2() },
-      iMouse:      { value: new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2) }
-    };
+    const uniforms = {
+      iTime: { value: 0 },
+      iResolution: { value: new THREE.Vector2() },
+      iMouse: { value: new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2) },
+    };
 
-    const material = new THREE.ShaderMaterial({
-      vertexShader,
-      fragmentShader,
-      uniforms
-    });
+    const material = new THREE.ShaderMaterial({
+      vertexShader,
+      fragmentShader,
+      uniforms,
+    });
 
-    const geometry = new THREE.PlaneGeometry(2, 2);
-    const mesh     = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
+    const geometry = new THREE.PlaneGeometry(2, 2);
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh); // 4) Resize handler
 
-    // 4) Resize handler
-    const onResize = () => {
+    const onResize = () => {
       const containerEl = containerRef.current;
       if (!containerEl) return;
-      const width  = containerEl.clientWidth;
-      const height = containerEl.clientHeight;
-      renderer.setSize(width, height);
-      uniforms.iResolution.value.set(width, height);
-    };
-    window.addEventListener('resize', onResize);
-    onResize(); // initialize size
+      const width = containerEl.clientWidth;
+      const height = containerEl.clientHeight;
+      renderer.setSize(width, height);
+      uniforms.iResolution.value.set(width, height);
+    };
+    window.addEventListener("resize", onResize);
+    onResize(); // initialize size
+    // 5) Mouse handler
 
-    // 5) Mouse handler
-    const onMouseMove = (e: MouseEvent) => {
+    const onMouseMove = (e: MouseEvent) => {
       const containerEl = containerRef.current;
-      if (!containerEl) return;
-      // flip Y so origin is bottom-left
-      uniforms.iMouse.value.set(
-        e.clientX,
-        containerEl.clientHeight - e.clientY
-      );
-    };
-    window.addEventListener('mousemove', onMouseMove);
+      if (!containerEl) return; // flip Y so origin is bottom-left
+      uniforms.iMouse.value.set(e.clientX, containerEl.clientHeight - e.clientY);
+    };
+    window.addEventListener("mousemove", onMouseMove); // 6) Animation loop
 
-    // 6) Animation loop
-    renderer.setAnimationLoop(() => {
-      uniforms.iTime.value = clock.getElapsedTime();
-      renderer.render(scene, camera);
-    });
+    renderer.setAnimationLoop(() => {
+      uniforms.iTime.value = clock.getElapsedTime();
+      renderer.render(scene, camera);
+    }); // 7) Cleanup on unmount
 
-    // 7) Cleanup on unmount
-    return () => {
-      window.removeEventListener('resize', onResize);
-      window.removeEventListener('mousemove', onMouseMove);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("mousemove", onMouseMove);
 
-      renderer.setAnimationLoop(null);
+      renderer.setAnimationLoop(null);
 
-      const canvas = renderer.domElement;
-      if (canvas && canvas.parentNode) {
-        canvas.parentNode.removeChild(canvas);
-      }
+      const canvas = renderer.domElement;
+      if (canvas && canvas.parentNode) {
+        canvas.parentNode.removeChild(canvas);
+      }
 
-      material.dispose();
-      geometry.dispose();
-      renderer.dispose();
-    };
-  }, []);
+      material.dispose();
+      geometry.dispose();
+      renderer.dispose();
+    };
+  }, []);
 
-  return (
-    <div
-      ref={containerRef}
-      className="shader-container"
-      style={{
-        position:     'fixed',
-        top:          0,
-        left:         0,
-        width:        '100vw',
-        height:       '100vh',
-        zIndex:       -1,
-        pointerEvents:'none'
-      }}
-      aria-label="Warp Drive animated background"
-    />
-  );
+  return (
+    <div
+      ref={containerRef}
+      className="shader-container"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: -1,
+        pointerEvents: "none",
+      }}
+      aria-label="Warp Drive animated background"
+    />
+  );
 };
 
 export default WarpDriveShader;
