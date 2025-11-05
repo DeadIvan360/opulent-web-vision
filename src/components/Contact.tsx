@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import React, { useRef, useState } from "react"; // Importamos los hooks necesarios
 import { MessageSquare, Linkedin, Send } from "lucide-react"; // Importamos los iconos
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
-const Contact = () => {
+export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
@@ -56,9 +55,7 @@ const Contact = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="text-foreground text-4xl md:text-5xl font-light mb-4 tracking-tight">
-              <span className="text-luxury-gold">Contáctanos</span>
-            </h3>
+            <h3 className="text-foreground text-3xl font-semibold sm:text-4xl">Conectemos</h3>
             <p className="mt-3 text-xl font-light">Conversemos sobre tu próximo proyecto premium.</p>
           </motion.div>
         </div>
@@ -147,4 +144,4 @@ const Contact = () => {
       </div>
     </section>
   );
-};
+}
