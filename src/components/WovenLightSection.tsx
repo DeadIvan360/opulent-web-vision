@@ -204,9 +204,8 @@ const WovenLightSection = () => {
   const headline = "Código Real, Resultados Reales.";
 
   return (
-    <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black dark:bg-white">
+    <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-background">
       <WovenCanvas />
-      <HeroNav />
       <div className="relative z-10 text-center px-4">
         <h1
           className="text-6xl md:text-8xl text-white dark:text-slate-900"
