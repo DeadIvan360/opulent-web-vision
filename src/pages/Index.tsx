@@ -4,7 +4,7 @@ import Clients from "@/components/Clients";
 import { Timeline } from "@/components/Timeline";
 import { timelineData } from "@/components/TimelineData";
 import Pricing from "@/components/Pricing";
-import { SplineScene } from "@/components/SplineScene"; // <-- Esta línea es la que busca el archivo
+import WovenLightSection from "@/components/WovenLightSection"; // 
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -13,19 +13,14 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <main>
-        <Hero />
+        <Hero /> {/* <-- Tu Hero original se queda intacto */}
         <Clients />
         <Timeline data={timelineData} />
         <Pricing />
 
-        {/* --- SECCIÓN DE SPLINE AÑADIDA --- */}
-        <section id="spline-animation" className="h-[500px] w-full">
-          {/* ¡IMPORTANTE! 
-            CAMBIA LA URL de "scene" por la URL de tu propia escena de Spline.
-          */}
-          <SplineScene scene="https://prod.spline.design/T-A2R1-m6A-pl3-a/scene.splinecode" className="w-full h-full" />
-        </section>
-        {/* --- FIN DE LA SECCIÓN DE SPLINE --- */}
+        {/* --- SECCIÓN DE ANIMACIÓN AÑADIDA --- */}
+        <WovenLightSection />
+        {/* --- FIN DE LA SECCIÓN --- */}
 
         <Contact />
       </main>
