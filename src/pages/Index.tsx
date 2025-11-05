@@ -4,14 +4,13 @@ import Clients from "@/components/Clients";
 import { Timeline } from "@/components/Timeline";
 import { timelineData } from "@/components/TimelineData";
 import Pricing from "@/components/Pricing";
-import { SplineScene } from "@/components/SplineScene"; // <-- LÍNEA MODIFICADA
+import { SplineScene } from "@/components/SplineScene"; // <-- Esta línea es la que busca el archivo
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      {/* El componente <WarpDriveShader /> se ha eliminado */}
       <Header />
       <main>
         <Hero />
