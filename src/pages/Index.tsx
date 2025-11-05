@@ -4,18 +4,21 @@ import Clients from "@/components/Clients";
 import { Timeline } from "@/components/Timeline";
 import { timelineData } from "@/components/TimelineData";
 import Pricing from "@/components/Pricing";
+import WarpDriveShader from "@/components/WarpDriveShader"; // <-- LÍNEA AÑADIDA
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <WarpDriveShader /> {/* <-- LÍNEA AÑADIDA (lo ponemos aquí para que sea el fondo) */}
       <Header />
       <main>
         <Hero />
         <Clients />
         <Timeline data={timelineData} />
         <Pricing />
+        {/* Tu componente de animación está ahora como fondo de toda la página */}
         <Contact />
       </main>
       <Footer />
