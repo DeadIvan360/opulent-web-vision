@@ -243,7 +243,7 @@ const WovenLightSection = () => {
             className="rounded-full border-2 border-white/20 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 dark:border-slate-800/20 dark:bg-slate-800/5 dark:text-slate-800 dark:hover:bg-slate-800/10"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Explore the Weave
+            ¿Te atreves?
           </button>
         </motion.div>
       </div>
