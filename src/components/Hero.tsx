@@ -255,9 +255,6 @@ const Hero = () => {
           background: "radial-gradient(circle, rgba(203, 161, 53, 0.15) 0%, transparent 100%)",
         }}
       ></div>
-
-      {/* Gradiente de transición hacia la siguiente sección */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent via-background/30 to-background z-[4] pointer-events-none" />
     </section>
   );
 };
