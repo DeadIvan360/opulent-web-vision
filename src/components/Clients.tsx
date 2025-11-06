@@ -31,6 +31,8 @@ const VIDEOS_3 = [client9, client10, client11, client12]
 export default function Clients() {
   return (
     <div className="relative bg-background" id="clientes">
+      {/* Gradiente de transición desde el header */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background via-background/50 to-transparent z-[9998]" />
       {/* ======= ENCABEZADO CON ANIMACIONES ======= */}
       <ContainerStagger className="relative z-[9999] -mb-12 place-self-center px-6 pt-12 text-center">
         <ContainerAnimated>
